@@ -129,6 +129,6 @@ Embedding similarity is treated as conceptual affinity. It is not treated as pro
 
 ## Validation and auditability
 
-Both scripts fail on inconsistent identifiers, unexpected corpus size, invalid embedding shapes, non-finite vectors, misaligned rows, or unreconciled outputs. Generated artifacts are recorded in an output manifest with SHA-256 hashes. The final `validation_report.json` must report `"valid": true`.
+The scripts include automated integrity checks for document identifiers, corpus size, embedding dimensions, numerical validity, row alignment, and generated outputs. The embedding stage records its checks in `integrity_report.json`, while the full analysis records its final reconciliation checks in `validation_report.json`. A `"valid": true` result indicates technical consistency, not scientific validation. Generated analysis artifacts are recorded in `output_manifest.csv` with SHA-256 file hashes.
 
 Manual adjudications remain separate from computational inference. Completed human codes can override an embedding-inferred theory label, while study type, conceptual focus, eligibility, and formal theory are stored as distinct decisions.
